@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'byebug'
+
 # StringCalculator
 class StringCalculator
   # rubocop:disable Metrics/MethodLength
