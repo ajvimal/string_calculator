@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 # StringCalculator
 class StringCalculator
+  # rubocop:disable Metrics/MethodLength
   def self.add(numbers)
     return 0 if numbers.empty?
 
@@ -18,4 +21,5 @@ class StringCalculator
 
     num_list.sum
   end
+  # rubocop:enable Metrics/MethodLength
 end
