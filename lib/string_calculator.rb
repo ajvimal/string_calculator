@@ -1,20 +1,14 @@
 # frozen_string_literal: true
-
+require 'byebug'
 # StringCalculator
 class StringCalculator
   # rubocop:disable Metrics/MethodLength
-  def self.add(numbers)
-    return 0 if numbers.empty?
+  def self.add(str)
+    return 0 if str.empty?
 
-    delimiter = ','
-    if numbers.start_with?('//')
-      parts = numbers.split("\n", 2)
-      delimiter = parts[0][2..] # Extract custom delimiter
-      numbers = parts[1]
-    end
-
-    numbers = numbers.gsub("\n", delimiter) # Handle new lines as delimiters
-    num_list = numbers.split(delimiter).map(&:to_i)
+    number_str = str.gsub(/[a-zA-Z\s.,;\/]/,' ').split
+    return 0 if number_str.empty?
+    num_list = number_str.map(&:to_i)
 
     negatives = num_list.select(&:negative?)
     raise "negative numbers not allowed #{negatives.join(', ')}" if negatives.any?
